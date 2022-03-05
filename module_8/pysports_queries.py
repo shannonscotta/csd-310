@@ -13,45 +13,38 @@ try:
     db = mysql.connector.connect(**config)
 
     cursor = db.cursor()
-
-    query = "SELECT team_id, team_name, mascot from team"
-
-    cursor.execute(query)
-
+    queryOne = "SELECT * FROM team"
+    cursor.execute(queryOne)
+ 
     teams = cursor.fetchall()
 
-    print("\n  -- DISPLAYING ALL TEAMS --")
-
-    for team in teams:
-        print("Team ID: {team[0]}")
-        print("Team Name: {team[1]}\n")
-        print("Team Mascot: {team[2]}\n")
+    print("\n  -- DISPLAYING TEAM RECORDS --")
+    for team in teams: 
+        print(f"Team ID: {team[0]}\n" +
+        f"Team Name: {team[1]}\n" +
+        f"Team Mascot: {team[2]}\n")
 
     cursor = db.cursor()
-    query = "SELECT * FROM player"
-    cursor.execute(query)
+    queryTwo = "SELECT * FROM player"
+    cursor.execute(queryTwo)
 
     players = cursor.fetchall()
 
-    print("\n  -- DISPLAYING ALL PLAYERS --")
-
+    print ("\n  -- DISPLAYING PLAYER RECORDS --")
     for player in players:
-        print("Player ID: {player[0]}")
-        print("First Name: {player[1]}\n")
-        print("Last Name: {player[2]}\n")
-        print("Team: {player[3]}\n")
+        print(f"Player ID: {player[0]}\n" +
+        f"First Name: {player[1]}\n" +
+        f"Last Name: {player[2]}\n" +
+        f"Team: {player[3]}\n")
 
-    input("\n\n  Press any key to continue...")
+    input("\n  Press any key to continue... ")
 
 except mysql.connector.Error as err:
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-        print("  The specified username or password does not exist")
-
+        print("Invalid username or password")
     elif err.errno == errorcode.ER_BAD_DB_ERROR:
-        print("  The specified database does not exist")
-
+        print("Invalid database")
     else:
         print(err)
-
 finally:
     db.close()
