@@ -15,14 +15,14 @@ try:
     cursor = db.cursor()
     queryOne = "SELECT * FROM team"
     cursor.execute(queryOne)
- 
+
     teams = cursor.fetchall()
 
     print("\n  -- DISPLAYING TEAM RECORDS --")
-    for team in teams: 
+    for team in teams:
         print(f"Team ID: {team[0]}\n" +
-        f"Team Name: {team[1]}\n" +
-        f"Team Mascot: {team[2]}\n")
+              f"Team Name: {team[1]}\n" +
+              f"Team Mascot: {team[2]}\n")
 
     cursor = db.cursor()
     queryTwo = "SELECT * FROM player"
@@ -30,12 +30,12 @@ try:
 
     players = cursor.fetchall()
 
-    print ("\n  -- DISPLAYING PLAYER RECORDS --")
+    print("\n  -- DISPLAYING PLAYER RECORDS --")
     for player in players:
         print(f"Player ID: {player[0]}\n" +
-        f"First Name: {player[1]}\n" +
-        f"Last Name: {player[2]}\n" +
-        f"Team: {player[3]}\n")
+              f"First Name: {player[1]}\n" +
+              f"Last Name: {player[2]}\n" +
+              f"Team: {player[3]}\n")
 
     input("\n  Press any key to continue... ")
 
