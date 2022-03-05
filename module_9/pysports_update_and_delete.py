@@ -24,8 +24,13 @@ def showPlayers(collection):
 
 # insert a new record into the player table for team gandalf
 try:
+    # insert player query 
     query = "INSERT INTO player (first_name, last_name, team_id) VALUES ('Smeagol', 'Shire Folk', 1);"
+    
+    # get the cursor object
     cursor = db.cursor()
+    
+     # insert a new player record
     cursor.execute(query)
 
     # end transaction
@@ -34,6 +39,7 @@ try:
     query = "SELECT player_id, first_name, last_name, team_name FROM player INNER JOIN team ON player.team_id = team.team_id;"
     cursor.execute(query)
 
+    # get the results from the cursor object 
     all_rows = cursor.fetchall()
 
     print(f"\n - - DISPLAYING PLAYERS AFTER INSERT - -")
