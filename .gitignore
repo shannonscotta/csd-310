@@ -131,3 +131,6 @@ dmypy.json
 # ignore docker-compose
 ./docker-compose.yml
 /docker-compose.yml
+
+#db data
+./data

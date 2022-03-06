@@ -1,8 +1,8 @@
+CREATE database pysports;
 
--- drop test user if exists 
 DROP USER IF EXISTS 'pysports_user'@'localhost';
 
--- create pysports_user and grant them all privileges to the pysports database 
+-- create pysports_user and grant all privileges to the pysports database 
 CREATE USER 'pysports_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MySQL8IsGreat!';
 CREATE USER 'pysports_user'@'%' IDENTIFIED WITH mysql_native_password BY 'MySQL8IsGreat!';
 
