@@ -11,6 +11,7 @@ config = {
     "raise_on_warnings": True
 }
 
+# main menu method
 def show_menu():
     print("")
     print("\t\t==============================================")
@@ -23,12 +24,14 @@ def show_menu():
     print("\t\t==============================================")
     print("\n")
 
+# check user choice and provide for error case
     while True: 
         user_choice = (input('Please type in the corresponding number and press enter: '))
         if user_choice == "1" or user_choice == "2" or user_choice == "3" or user_choice == "4":
             return int (user_choice)
-        print("Please enter a valid ID: ")
+        print("Please enter a valid choice, hint... it is 1, 2, 3, or 4 ")
 
+# show the entire list of books to user 
 def show_books(cursor):
     cursor.execute("SELECT book_id, book_name, author, details from book")
 
@@ -42,6 +45,7 @@ def show_books(cursor):
         print("  Book Name: \t\t" + str(book[1]) + "\n  Author: \t\t" + str(book[2]) + "\n  Details: \t\t" + str(book[3]))
         print("")
 
+# show locations, theres only 1 location in db
 def show_locations(cursor):
     cursor.execute("SELECT locale from store")
 
@@ -56,7 +60,7 @@ def show_locations(cursor):
         print("  Locale : " + str(location[0]))
         print("")
 
-
+# verify that the user has an account and account for typo
 def validate_user():
     while True:
         print("\n")
@@ -66,6 +70,7 @@ def validate_user():
         print("\n")
         print("Please enter a valid id, hint... it is 1, 2, or 3 ")
 
+# print account options to user
 def show_account_menu():
     print("")
     print("\t\t==============================================")
@@ -77,6 +82,7 @@ def show_account_menu():
     print("\t\t==============================================")
     print("\n")
 
+# let the user choose from menu and account for typo
     while True: 
         user_choice = (input('Please type in the corresponding number and press enter: '))
         if user_choice == "1" or user_choice == "2" or user_choice == "3":
@@ -84,6 +90,7 @@ def show_account_menu():
         print("\n")
         print("Please enter a valid number, hint... it is 1, 2, or 3 ")
 
+# show unique wishlist for user
 def show_wishlist(cursor, user_id):
     cursor.execute("SELECT user.user_id, user.first_name, user.last_name, book.book_id, book.book_name, book.author " + 
                     "FROM wishlist " + 
@@ -101,6 +108,7 @@ def show_wishlist(cursor, user_id):
         print("  Book Name: \t\t" + str(book[4]) + "\n  Author: \t\t" + str(book[5]))
         print("")
 
+# show remaining books not in wishlist to user
 def show_books_to_add(cursor, user_id):
     cursor.execute("SELECT book_id, book_name " +
             "FROM book " +
@@ -129,6 +137,7 @@ try:
     print("******************** Welcome to the whattabook helper ********************")
     print("\n")
 
+#map out gui for user
     while True:
         choice = show_menu()
 
@@ -157,6 +166,8 @@ try:
             print('Thank you for visiting!\n Goodbye!')
             print("")
             break
+        
+# error handling
 except mysql.connector.Error as err:
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
         print("Invalid username or password")
