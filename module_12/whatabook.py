@@ -145,10 +145,3 @@ except mysql.connector.Error as err:
         print(err)
 finally:
     db.close()
-
-
-
-# display_avaliable_books(cursor, 1)
-# display_books(cursor)
-# display_locations(cursor)
-# prompt_userID()
