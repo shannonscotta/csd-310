@@ -27,7 +27,7 @@ def main_menu():
         user_choice = (input('Please type in the corresponding number and press enter: '))
         if user_choice == "1" or user_choice == "2" or user_choice == "3" or user_choice == "4":
             return int (user_choice)
-        print("Please choose a valid number,hint: choose 1, 2, 3, or 4")
+        print("Please enter a valid ID: ")
 
 def display_books(cursor):
     cursor.execute("SELECT book_id, book_name, author, details from book")
@@ -60,11 +60,11 @@ def display_locations(cursor):
 def prompt_userID():
     while True:
         print("\n")
-        user_id = input("\t Valid user ID's are 1, 2, or 3. What is your user ID?: ")
+        user_id = input("\t Please enter your user ID : ")
         if user_id == "1" or user_id == "2" or user_id == "3":
             return int (user_id)
         print("\n")
-        print('\t Please choose a valid number,hint: choose 1,2, or 3')
+        print('\t User ID not valid, hint... its 1, 2, or 3')
 
 def display_verified_user_menu():
     print("")
@@ -93,7 +93,7 @@ def display_wishlist(cursor, user_id):
     user_wishlist = cursor.fetchall()
 
     print("\n\n\n\n\n\n\n\n")
-    print("\t\t ******************** UNIQUE WISHLIST ********************")
+    print("\t\t ******************** YOUR WISHLIST ********************")
     print("\n\n")
 
     for book in user_wishlist:
