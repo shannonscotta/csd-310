@@ -13,16 +13,18 @@ config = {
 
 def main_menu():
     print("")
-    print("\t      WELCOME TO THE MAIN MENU ")
-    print("\t      ======================== \n")
-    print("\t      1. View Books")
-    print("\t      2. View Store Locations")
-    print("\t      3. My Account")
-    print("\t      4. Exit Program")
-    print("\n\n")
+    print("\t\t==============================================")
+    print("\t\t\t      MAIN MENU OPTIONS")
+    print("\t\t==============================================")
+    print("\t\t\t       1. View Books")
+    print("\t\t\t       2. View Store Locations")
+    print("\t\t\t       3. My Account")
+    print("\t\t\t       4. Exit Program")
+    print("\t\t==============================================")
+    print("\n")
 
     while True: 
-        user_choice = (input('Please select the corresponding number to choose an option: '))
+        user_choice = (input('Please type in the corresponding number and press enter: '))
         if user_choice == "1" or user_choice == "2" or user_choice == "3" or user_choice == "4":
             return int (user_choice)
         print("Please choose a valid number,hint: choose 1, 2, 3, or 4")
@@ -31,39 +33,52 @@ def display_books(cursor):
     cursor.execute("SELECT book_id, book_name, author, details from book")
 
     bookList = cursor.fetchall()
-    print("\t ********** SHOWING ALL BOOKS **********")
+
+    print("\n\n\n\n\n\n\n\n")
+    print("\t\t ******************** BOOK LIST ********************")
+    print("\n\n")
 
     for book in bookList:
-        print("  Book Name: " + str(book[1]) + "\n  Author: " + str(book[2]) + "\n  Details: " + str(book[3]))
+        print("  Book Name: \t\t" + str(book[1]) + "\n  Author: \t\t" + str(book[2]) + "\n  Details: \t\t" + str(book[3]))
         print("")
-        
 
 def display_locations(cursor):
     cursor.execute("SELECT locale from store")
 
     locationList = cursor.fetchall()
-    print("\t********** SHOWING ALL LOCATIONS **********")
+
+    print("\n\n")
+    print("\t\t ******************** LOCATIONS ********************")
+    print("\n\n")
+
 
     for location in locationList:
         print("  Locale : " + str(location[0]))
         print("")
 
+
 def prompt_userID():
     while True:
-        user_id = input('\t Please enter your user ID: ')
+        print("\n")
+        user_id = input("\t Valid user ID's are 1, 2, or 3. What is your user ID?: ")
         if user_id == "1" or user_id == "2" or user_id == "3":
             return int (user_id)
-        print("")
+        print("\n")
         print('\t Please choose a valid number,hint: choose 1,2, or 3')
 
 def display_verified_user_menu():
-    print("Welcome to your account")
-    print("\t1. Wishlist")
-    print("\t2. Add book")
-    print("\t3. Back to main menu")
+    print("")
+    print("\t\t==============================================")
+    print("\t\t\t      ACCOUNT OPTIONS")
+    print("\t\t==============================================")
+    print("\t\t\t 1. Wishlist")
+    print("\t\t\t 2. Add book")
+    print("\t\t\t 3. Back to main menu")
+    print("\t\t==============================================")
+    print("\n")
 
     while True: 
-        user_choice = (input('Please select the corresponding number to choose an option: '))
+        user_choice = (input('Please type in the corresponding number and press enter: '))
         if user_choice == "1" or user_choice == "2" or user_choice == "3":
             return int (user_choice)
         print("Please choose a valid number,hint: choose 1, 2, or 3")
@@ -77,10 +92,12 @@ def display_wishlist(cursor, user_id):
 
     user_wishlist = cursor.fetchall()
 
-    print("\t********** SHOWING WISHLIST **********")
+    print("\n\n\n\n\n\n\n\n")
+    print("\t\t ******************** UNIQUE WISHLIST ********************")
+    print("\n\n")
 
     for book in user_wishlist:
-        print("  Book Name: " + str(book[4]) + "\n  Author: " + str(book[5]))
+        print("  Book Name: \t\t" + str(book[4]) + "\n  Author: \t\t" + str(book[5]))
         print("")
 
 def display_avaliable_books(cursor, user_id):
@@ -90,11 +107,14 @@ def display_avaliable_books(cursor, user_id):
 
     available_booklist = cursor.fetchall()
 
-    print("\t********** SHOWING AVAILABLE BOOKS**********")
+    print("\n\n\n\n\n\n\n\n")
+    print("\t\t ******************** AVAILABLE BOOKS ********************")
+    print("\n\n")
 
     for book in available_booklist:
-        print("  Book ID: " + str(book[0]) + "\n  Book name: " + str(book[1]))
+        print("  Book ID: \t\t" + str(book[0]) + "\n  Book name: \t\t" + str(book[1]))
         print("")
+
 
 def add_book_to_wishlist(cursor, user_id, book_id):
     cursor.execute("INSERT INTO wishlist(user_id, book_id) VALUES(" + str(user_id) + "," + str(book_id) + ")")
@@ -104,9 +124,9 @@ try:
 
     db = mysql.connector.connect(**config) 
     cursor = db.cursor()
-    
-    print("\n\n\n\n\n\n\n\n")
-    print("********** Welcome to the whattabook helper **********")
+    print("\n")
+    print("******************** Welcome to the whattabook helper ********************")
+    print("\n")
 
     while True:
         choice = main_menu()
@@ -133,7 +153,7 @@ try:
                     break
         elif choice == 4:
             print("")
-            print("Goodbye!")
+            print('Thank you for visiting!\n Goodbye!')
             print("")
             break
 except mysql.connector.Error as err:
