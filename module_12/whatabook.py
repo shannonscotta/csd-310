@@ -11,7 +11,7 @@ config = {
     "raise_on_warnings": True
 }
 
-def main_menu():
+def show_menu():
     print("")
     print("\t\t==============================================")
     print("\t\t\t      MAIN MENU OPTIONS")
@@ -29,7 +29,7 @@ def main_menu():
             return int (user_choice)
         print("Please enter a valid ID: ")
 
-def display_books(cursor):
+def show_books(cursor):
     cursor.execute("SELECT book_id, book_name, author, details from book")
 
     bookList = cursor.fetchall()
@@ -42,7 +42,7 @@ def display_books(cursor):
         print("  Book Name: \t\t" + str(book[1]) + "\n  Author: \t\t" + str(book[2]) + "\n  Details: \t\t" + str(book[3]))
         print("")
 
-def display_locations(cursor):
+def show_locations(cursor):
     cursor.execute("SELECT locale from store")
 
     locationList = cursor.fetchall()
@@ -57,16 +57,16 @@ def display_locations(cursor):
         print("")
 
 
-def prompt_userID():
+def validate_user():
     while True:
         print("\n")
         user_id = input("\t Please enter your user ID : ")
         if user_id == "1" or user_id == "2" or user_id == "3":
             return int (user_id)
         print("\n")
-        print('\t User ID not valid, hint... its 1, 2, or 3')
+        print("Please enter a valid id, hint... it is 1, 2, or 3 ")
 
-def display_verified_user_menu():
+def show_account_menu():
     print("")
     print("\t\t==============================================")
     print("\t\t\t      ACCOUNT OPTIONS")
@@ -81,9 +81,10 @@ def display_verified_user_menu():
         user_choice = (input('Please type in the corresponding number and press enter: '))
         if user_choice == "1" or user_choice == "2" or user_choice == "3":
             return int (user_choice)
-        print("Please choose a valid number,hint: choose 1, 2, or 3")
+        print("\n")
+        print("Please enter a valid number, hint... it is 1, 2, or 3 ")
 
-def display_wishlist(cursor, user_id):
+def show_wishlist(cursor, user_id):
     cursor.execute("SELECT user.user_id, user.first_name, user.last_name, book.book_id, book.book_name, book.author " + 
                     "FROM wishlist " + 
                     "INNER JOIN user ON wishlist.user_id = user.user_id " + 
@@ -100,7 +101,7 @@ def display_wishlist(cursor, user_id):
         print("  Book Name: \t\t" + str(book[4]) + "\n  Author: \t\t" + str(book[5]))
         print("")
 
-def display_avaliable_books(cursor, user_id):
+def show_books_to_add(cursor, user_id):
     cursor.execute("SELECT book_id, book_name " +
             "FROM book " +
             "WHERE book_id NOT IN (SELECT book_id FROM wishlist WHERE user_id = " + str(user_id) + ")")
@@ -129,22 +130,22 @@ try:
     print("\n")
 
     while True:
-        choice = main_menu()
+        choice = show_menu()
 
         if choice == 1:
-            display_books(cursor)
+            show_books(cursor)
         elif choice == 2:
-            display_locations(cursor)
+            show_locations(cursor)
         elif choice == 3:
-            user_id = prompt_userID()
+            user_id = validate_user()
             while True:
-                users_menu = display_verified_user_menu()
+                users_menu = show_account_menu()
                 if (users_menu == 1):
-                    display_wishlist(cursor, user_id)
+                    show_wishlist(cursor, user_id)
                 elif users_menu == 2:
-                    display_avaliable_books(cursor, user_id)
+                    show_books_to_add(cursor, user_id)
                     try:
-                        book_id = int(input("\t Enter the book ID that you want to add or press any other key to cancel: "))
+                        book_id = int(input("\t Enter the book ID that you want to add or press any other key to go back: "))
                     except:
                         print('Please enter a valid number')
                         continue
