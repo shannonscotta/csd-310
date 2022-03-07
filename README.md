@@ -9,9 +9,13 @@ run `docker-compose -f "whatabook-docker-compose.yml" up -d --build` to build an
 
 If you are using Visual Studio Code you can also do this through the gui by right clicking whatabook-docker-compose.yml in the file directory and selecting ***Compose Up***.
 
+
+
 ##  Trouble shooting
 
 run `docker-compose -f "whatabook-docker-compose.yml" logs` to look for errors.
+
+
 
 ## Clean up 
 
