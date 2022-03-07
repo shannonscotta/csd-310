@@ -91,10 +91,10 @@ INSERT INTO wishlist(user_id, book_id)
 VALUES (1,1);
 
 INSERT INTO wishlist(user_id, book_id) 
-VALUES (2,2);
+VALUES (2,1);
 
 INSERT INTO wishlist(user_id, book_id) 
-VALUES (3,3);
+VALUES (3,1);
 
 -- insert store into stores
 INSERT INTO store(locale) VALUES ('04112 Kyiv, Ukraine');
