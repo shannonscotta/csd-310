@@ -5,6 +5,7 @@ Database Development
 ## Start up Method 1
 
 run `01_whatabook_db_init.sql` in your db.
+
 run `whatabook.py` 
 
 
