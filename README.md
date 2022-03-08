@@ -1,7 +1,7 @@
 # csd-310
 Database Development
 <br>
-<br/>
+<br>
 
 **Notes to users**
 - Valid User ID's: `1` || `2` || `3`
