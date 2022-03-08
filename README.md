@@ -1,26 +1,25 @@
 # csd-310
 Database Development
 
-**Notes**
+**Notes to users**
 - Valid user Ids are: 1 || 2 || 3
 - Every user has the same book by John Steinbeck initially added to their wishlist
-- Enjoy!
 
 
 ## Start up Method 1
 
-run `01_whatabook_db_init.sql` in your db.
+- run `01_whatabook_db_init.sql` in your db.
 
-run `whatabook.py`. 
+- run `whatabook.py`. 
 
 <br>
 <br>
 
 ## Start up Method 2
 
-run `docker-compose -f "whatabook-docker-compose.yml" up -d --build` to build an image.
+- run `docker-compose -f "whatabook-docker-compose.yml" up -d --build` to build an image.
 
-run `whatabook.py`.
+- run `whatabook.py`.
 
 Hint: If you are using Visual Studio Code you can also do this through the gui by right clicking whatabook-docker-compose.yml in the file directory and selecting ***Compose Up***.
 
