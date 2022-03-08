@@ -2,7 +2,7 @@
 Database Development
 
 **Notes to users**
-- Valid User ID's: 1 || 2 || 3
+- Valid User ID's: `1` || `2` || `3`
 - Every User has the same book by John Steinbeck initially added to their wishlist
 
 
