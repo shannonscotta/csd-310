@@ -6,14 +6,17 @@ Database Development
 
 run `01_whatabook_db_init.sql` in your db.
 
-run `whatabook.py` 
+run `whatabook.py`. 
 
 
 ## Start up Method 2
 
 run `docker-compose -f "whatabook-docker-compose.yml" up -d --build` to build an image.
 
-If you are using Visual Studio Code you can also do this through the gui by right clicking whatabook-docker-compose.yml in the file directory and selecting ***Compose Up***.
+run `whatabook.py`.
+
+
+Hint: If you are using Visual Studio Code you can also do this through the gui by right clicking whatabook-docker-compose.yml in the file directory and selecting ***Compose Up***.
 
 
 
@@ -27,7 +30,7 @@ run `docker-compose -f "whatabook-docker-compose.yml" logs` to look for errors.
 
 run `docker-compose -f "whatabook-docker-compose.yml" down` to stop containers, remove containers, networks, volumes, and images created by up.
 
-If you are using Visual Studio Code you can also do this through the gui by right clicking whatabook-docker-compose.yml in the file directory and selecting ***Compose Down***.
+Hint: If you are using Visual Studio Code you can also do this through the gui by right clicking whatabook-docker-compose.yml in the file directory and selecting ***Compose Down***.
 
 run  `docker system prune --all` to remove all unused containers, networks, and images.
 
