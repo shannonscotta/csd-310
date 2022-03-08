@@ -2,8 +2,8 @@
 Database Development
 
 **Notes to users**
-- Valid user Ids are: 1 || 2 || 3
-- Every user has the same book by John Steinbeck initially added to their wishlist
+- Valid User ID's: 1 || 2 || 3
+- Every User has the same book by John Steinbeck initially added to their wishlist
 
 
 ## Start up Method 1
