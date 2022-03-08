@@ -8,29 +8,26 @@ Database Development
 
 ## Start up Method 1
 
-- run `01_whatabook_db_init.sql` in your db.
+run `01_whatabook_db_init.sql` in your db.
 
-- run `whatabook.py`. 
+run `whatabook.py`. 
 
-<br>
 <br>
 
 ## Start up Method 2
 
-- run `docker-compose -f "whatabook-docker-compose.yml" up -d --build` to build an image.
+run `docker-compose -f "whatabook-docker-compose.yml" up -d --build` to build an image.
 
-- run `whatabook.py`.
+run `whatabook.py`.
 
 Hint: If you are using Visual Studio Code you can also do this through the gui by right clicking whatabook-docker-compose.yml in the file directory and selecting ***Compose Up***.
 
-<br>
 <br>
 
 ##  Trouble shooting Method 2
 
 run `docker-compose -f "whatabook-docker-compose.yml" logs` to look for errors.
 
-<br>
 <br>
 
 ## Clean up Method 2
