@@ -5,7 +5,7 @@ Database Development
 
 **Notes to users**
 - Valid User ID's: `1` || `2` || `3`
-- Every User has the same book by John Steinbeck initially added to their wishlist
+- Every User has 'The Grapes of Wrath' added to their wishlist initially.
 
 
 ## Start up Method 1
