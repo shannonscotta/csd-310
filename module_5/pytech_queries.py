@@ -13,11 +13,11 @@ student_list = students.find({})
 # loop and print
 def loop_docs():
     print("\n- - DISPLAYING STUDENT DOCUMENTS FROM THE find() QUERY - -")
-    collection = students.find({})
-    for data in collection:
-        print(f"Student Id: {data['student_id']}")
-        print(f"First Name: {data['first_name']}")
-        print(f"Last Name: {data['last_name']}\n")
+    docs = students.find({})
+    for doc in docs:
+        print(f"Student Id: {doc['student_id']}")
+        print(f"First Name: {doc['first_name']}")
+        print(f"Last Name: {doc['last_name']}\n")
 
 # method to find student by ID and print
 def find_student():
