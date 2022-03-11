@@ -44,3 +44,4 @@ run `docker ps -a` to list all the containers available locally.
 
 <!-- localhost root password 3306 enter -->
 <!-- option control e to run your new query after connected to localhost and docker has been composed -->
+
